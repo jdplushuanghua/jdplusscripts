@@ -1,19 +1,18 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 京豆变动通知
+name: 签到
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 16 * * *' #北京时间0点运行，action会有延迟
   watch:
     types: started
   repository_dispatch:
-    types: bean_change
+    types: lightning
 jobs:
   build:
-
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
@@ -33,12 +32,20 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【京豆变动通知】'
+      - name: '运行 【多功能签到】'
         run: |
-          npm run jd_bean_change
+          npm run lightning_checkin
+          npm run j.mr_checkin
+          npm run v2ex_checkin
+          npm run smzdm_checkin
+          npm run bcs_checkin
         env:
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
+          FREE_MY_CLOUD_USERNAME: ${{ secrets.FREE_MY_CLOUD_USERNAME }}
+          FREE_MY_CLOUD_PASSWORD: ${{ secrets.FREE_MY_CLOUD_PASSWORD }}
+          JJ_USERNAME: ${{ secrets.JJ_USERNAME }}
+          JJ_PASSWORD: ${{ secrets.JJ_PASSWORD }}
+          V2EX_COOKIE: ${{ secrets.V2EX_COOKIE }}
+          SMZDM_COOKIE: ${{ secrets.SMZDM_COOKIE }}
+          BCS_COOKIE: ${{ secrets.BCS_COOKIE }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          JD_818_SHAREID_NOTIFY: ${{ secrets.JD_818_SHAREID_NOTIFY }}
