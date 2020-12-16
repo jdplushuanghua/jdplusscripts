@@ -17,7 +17,6 @@
     "jd_joy_run": "node jd_joy_run.js",
     "jd_joy_steal": "node jd_joy_steal.js",
     "jd_lotteryMachine": "node jd_lotteryMachine.js",
-    "jd_mohe": "node jd_mohe.js",
     "jd_moneyTree": "node jd_moneyTree.js",
     "jd_pet": "node jd_pet.js",
     "jd_pigPet": "node jd_pigPet.js",
@@ -34,15 +33,15 @@
     "jd_jdfactory": "node jd_jdfactory.js",
     "jd_shareCodes_boarding": "node jd_shareCodes_boarding.js",
     "jd_syj": "node jd_syj.js",
-    "jd_jxstory": "node jd_jxstory.js",
     "jd_ms_redrain": "node jd_ms_redrain.js",
-    "jd_split": "node jd_split.js",
     "jd_bean_home": "node jd_bean_home.js",
     "jd_car": "node jd_car.js",
     "jd_health": "node jd_health.js",
     "jd_kd": "node jd_kd.js",
     "jd_ds": "node jd_ds.js",
-    "jd_digital_floor": "node jd_digital_floor.js",
+    "jd_apple_live": "node jd_apple_live.js",
+    "jd_live": "node jd_live.js",
+    "jr_sign": "node jr_sign.js",
     "jd_live_redrain": "node jd_live_redrain.js",
     "shareCodesHelper": "node shareCodesHelper.js",
     "lightning_checkin": "node other/lightning_checkin.js",
@@ -50,7 +49,11 @@
     "j.mr_checkin": "node other/j.mr_checkin.js",
     "v2ex_checkin": "node other/v2ex_checkin.js",
     "bcs_checkin": "node other/bcs_checkin.js",
-    "qqread": "node other/qqread.js",
+    "52pojie_checkin": "node other/52pojie_checkin.js",
+    "ruike1_reply": "node other/ruike1_reply.js",
+    "52pojie_reply": "node other/52pojie_reply.js",
+    "xm_sport": "node backUp/xmSports.js",
+    "qqread": "node backUp/qqread.js",
     "check_workflow": "node utils/check_workflow.js"
   },
   "repository": {
@@ -68,9 +71,11 @@
     "download": "^8.0.0",
     "got": "^11.5.1",
     "http-server": "^0.12.3",
+    "iconv-lite": "^0.6.2",
     "moment": "^2.29.1",
     "request": "^2.88.2",
     "tough-cookie": "^4.0.0",
-    "tunnel": "0.0.6"
+    "tunnel": "0.0.6",
+    "urlencode": "^1.1.0"
   }
 }

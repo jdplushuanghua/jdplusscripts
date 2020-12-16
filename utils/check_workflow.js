@@ -28,22 +28,23 @@ const whiteList = [
     'smzdm_checkin.js',
     'test2.js',
     'v2ex_checkin.js',
-    'jd_car.js',
-    'jd_ds.js',
-    'jd_health.js',
-    'jd_kd.js',
-    'jd_digital_floor.js',
     'CookieSet.json',
-    'jdJxStoryShareCodes.js'
+    'jdJxStoryShareCodes.js',
+    'script_template.js'
 ]
 
-const scripts = fs.readdirSync('./').filter(it => it.includes('.js'))
+const scripts = fs.readdirSync('./').filter(it => it.includes('.js')).map(it => it.replace('.js', ''))
 // console.log('scripts: ', scripts)
 const workflows = fs.readdirSync('./.github/workflows').map(it => it.replace('.yml', ''))
 // console.log('workflows: ', workflows)
-const conflicts = scripts.filter(it => {
-    const name = it.replace('.js', '')
-    return !workflows.includes(name) && !whiteList.includes(it)
+let conflicts = scripts.filter(it => {
+    return !workflows.includes(it) && !whiteList.includes(`${it}.js`)
 })
 
-console.log(conflicts)
+console.log(`未添加workflow --> ${conflicts}`)
+
+conflicts = workflows.filter(it => {
+    return !scripts.includes(it) && !whiteList.includes(it)
+})
+
+console.log(`多余的workflow --> ${conflicts}`)
