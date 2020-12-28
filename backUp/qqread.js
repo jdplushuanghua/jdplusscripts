@@ -11,7 +11,7 @@
  QQ_READ_TIME_HEADER_VAL  ------》   qqreadtimehd
  *****************************************************************************************************************
 ziye
-本人github地址     https://github.com/ziye12/JavaScript
+本人github地址     https://github.com/ziye12/JavaScript 
 转载请备注个名字，谢谢
 
 11.25 增加 阅读时长上传，阅读金币，阅读随机金币
@@ -62,7 +62,7 @@ const jsname = '企鹅读书'
 const $ = Env(jsname)
 let task = '', config, ssr2 = '', wktime, day = 0;
 console.log(`\n========= 脚本执行时间(TM)：${new Date(new Date().getTime() + 0 * 60 * 60 * 1000).toLocaleString('zh', {hour12: false})} =========\n`)
-
+const notify = require('../sendNotify');
 const logs = 1;   //0为关闭日志，1为开启
 
 const TIME = 30//单次时长上传限制，默认5分钟
@@ -233,7 +233,14 @@ async function QQ_READ() {
   }
 }
 function showmsg() {
-  $.msg(jsname, "", tz); // 宝箱每15次通知一次
+  return new Promise(async resolve => {
+    let nowTimes = new Date(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000);
+    if (nowTimes.getHours() === 22 && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 15)) {
+      await notify.sendNotify(jsname, tz);
+    }
+    $.msg(jsname, "", tz);
+    resolve()
+  })
 }
 //提现
 function qqreadwithdraw() {
