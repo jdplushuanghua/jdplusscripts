@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_health
+name: jx_cfd
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '5 16 * * *'
+    - cron: '0 * * * *'
   watch:
     types: started
   repository_dispatch:
-    types: health
+    types: jx_cfd
 jobs:
   build:
 
@@ -35,9 +35,9 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【健康抽奖机】'
+      - name: '运行 【京喜财富岛】'
         run: |
-          node jd_health.js
+          node jx_cfd.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
@@ -49,3 +49,5 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
+          JXNC_TOKEN1: ${{ secrets.JXNC_TOKEN1 }}
+          JXNC_TOKEN2: ${{ secrets.JXNC_TOKEN2 }}

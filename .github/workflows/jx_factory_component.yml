@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_health
+name: jx_factory_component
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '5 16 * * *'
+    - cron: '0 1,18 * * *'
   watch:
     types: started
   repository_dispatch:
-    types: health
+    types: jx_factory_component
 jobs:
   build:
 
@@ -35,12 +35,14 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【健康抽奖机】'
+      - name: '运行 【京喜工厂plus】'
         run: |
-          node jd_health.js
+          node jx_factory_component.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
+          MARKET_COIN_TO_BEANS: ${{ secrets.MARKET_COIN_TO_BEANS }}
+          MARKET_REWARD_NOTIFY: ${{ secrets.MARKET_REWARD_NOTIFY }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
