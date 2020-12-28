@@ -44,17 +44,12 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const inviteCodes = [
-    'P04z54XCjVUnoaW5m9cZ2T62ypPnXW_Ekpbj-M',
-    'P04z54XCjVUnoaW5m9cZxa_rCUbwwORFGOwdw',
-    'P04z54XCjVUnoaW5jYOCmn62HpInTqDQCYzaOQ',
-    'P04z54XCjVUnoaW5m9cZyaNjzQOxn9JToHNsg',
-    'P04z54XCjVUnoaW5m9cZ2auj3RKl9xtmYsZHqU',
-    'P04z54XCjVUnoaW5m9cZxufhR0z0K5upoyaxQ',
-    'P04z54XCjVUnoaW5uKMtbd5Tg',
-    'P04z54XCjVUnoaW5m9cZ2f4iXxLlFabfyYpMsY',
-    'P04z54XCjVUnoaW5m1dVTH7331K',
-    'P04z54XCjVUnoaW5m9cZ2X71HlKx8SXUboucek',
-    'P04z54XCjVUnoaW5m9cZ2X-2HRMkWAtHtBTcPs'
+  "P04z54XCjVUnoaW5m9cZzKCojQL8w09KrTwKQ",
+  "P04z54XCjVUnoaW5m9cZ2X92X8bwIds3nJLywU",
+  "P04z54XCjVUnoaW5m9cZyinnjUR8skcmYnkJw",
+  "P04z54XCjVUnoaW5m9cZ2f62H0ZwFTwZTAT0pk",
+  "P04z54XCjVUnoaW5jcKCmjx3HpPyWEc",
+  "P04z54XCjVUnoaW5m9cZxeduA027ZWrTObyFQ",
 ];
 !(async () => {
   await requireConfig();
